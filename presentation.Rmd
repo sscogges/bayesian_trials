@@ -1,0 +1,594 @@
+---
+title: "Bayesian Adaptive Trials"
+subtitle: "or, How I Learned to Stop Worrying and Love Sample Size Calculations"
+author: "Scott Coggeshall"
+institute: "Health Services Research & Development, VA Puget Sound"
+date: " "
+output:
+  xaringan::moon_reader:
+    css: ["default", "css/my-themes.css"]
+    lib_dir: libs
+    nature:
+      beforeInit: "macros.js"
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+    seal: false
+
+---
+class: inverse
+background-image: url(figures/orion.jpg)
+
+--
+
+.pull-left-title[
+### Bayesian 
+
+### Adaptive 
+
+### Trials 
+]
+
+--
+
+.pull-right-title[
+### Or,
+
+### How I Learned to Stop Worrying and Love Sample Size Calculations
+
+]
+
+--
+
+.bottom-text[Scott Coggeshall 
+
+HSR&D
+
+VA Puget Sound
+
+]
+
+
+
+
+---
+class:inverse
+
+# Typical Fixed $n$ Randomized Trial
+
+--
+
+![:scale 15%](figures/pill.svg)
+
+
+ 
+
+
+---
+
+
+class:inverse
+
+# Typical Fixed $n$ Randomized Trial
+
+
+
+![:scale 15%](figures/pill_questionmark.svg)
+--
+
+- RCT time! But how many people?
+
+--
+
+- Sample size calculation says we need $n$ = 20!
+
+--
+
+![](figures/cohort.svg)
+
+
+---
+class:inverse
+
+# Typical Fixed $n$ Randomized Trial
+
+
+
+![:scale 15%](figures/pill_questionmark.svg)
+
+
+- RCT time! But how many people?
+
+
+
+- Sample size calculation says we need $n$ = 20!
+
+
+
+![](figures/cohort_with_pill.svg)
+
+---
+class:inverse
+
+# Typical Fixed $n$ Randomized Trial
+
+
+
+![:scale 15%](figures/pill_questionmark.svg)
+
+
+- RCT time! But how many people?
+
+
+
+- Sample size calculation says we need $n$ = 20!
+
+
+
+![](figures/cohort_with_pill_arrow_computer.svg)
+
+
+ 
+ 
+
+---
+
+class:inverse
+
+# Typical Fixed $n$ Randomized Trial
+
+
+
+![:scale 15%](figures/pill_questionmark.svg)
+
+
+- RCT time! But how many people?
+
+
+
+- Sample size calculation says we need $n$ = 20!
+
+
+
+![](figures/cohort_with_pill_arrow_computer_monkey.svg)
+
+---
+class:inverse
+
+--
+.left[
+![:scale 40%](figures/guy1_math.gif)
+]
+
+--
+
+.center[
+![:scale 30%](figures/woman1_math.gif)
+]
+
+--
+
+.topright[
+![:scale 20%](figures/guy2_math.gif)
+]
+
+--
+
+.bottomleft[
+![](figures/woman2_math.gif)
+
+]
+
+--
+
+.bottomright[
+![](figures/guy4_math.gif)
+]
+---
+class:inverse
+
+--
+
+![](figures/bayes.gif)
+
+--
+
+The Right Reverend Thomas Bayes (1702-1761)
+
+--
+
+.right[
+![:scale 80%](figures/bayes_theorem.svg)
+]
+
+---
+class:inverse
+
+
+
+![](figures/bayes_x.gif.svg)
+
+
+The Right Reverend Thomas Bayes (1702-1761)
+
+
+
+.right[
+![:scale 80%](figures/bayes_theorem.svg)
+]
+---
+class:inverse
+
+--
+
+![](figures/laplace.jpg)
+
+--
+
+Pierre-Simon Laplace (1749-1827)
+
+--
+
+> Probability is common sense reduced to a calculus. It makes one estimate accurately what right-minded people feel by a sort of instinct, often without being able to give a reason for it
+
+--
+
+![:scale 80%](figures/dice.svg)
+
+
+
+
+---
+class:inverse
+
+
+![](figures/laplace.jpg)
+
+
+
+Pierre-Simon Laplace (1749-1827)
+
+
+> Probability is common sense reduced to a calculus. It makes one estimate accurately what right-minded people feel by a sort of instinct, often without being able to give a reason for it
+
+
+
+![:scale 80%](figures/dice_solarsystem.svg)
+
+
+
+
+---
+class:inverse
+
+.pull-left[
+
+## Bayes Bot
+
+<br>
+<br>
+
+![](figures/robot1.svg)
+]
+
+.pull-right[
+
+## Freq Bot
+
+<br>
+<br>
+
+![](figures/robot2.svg)
+]
+
+--
+
+How do they see statistical models?
+
+
+
+---
+class: inverse
+
+Classic one-sample problem: estimate mean and variance of a population
+
+--
+
+Let's be really boring and say we want to estimate the average height of a group of people
+
+--
+
+We program both robots to "know" that Height has some distribution with a finite mean $E[Height] = \mu$ and finite variance $Var[Height] = \sigma^2$
+
+
+
+
+---
+class: inverse
+--
+Let's start with Freq Bot
+
+--
+
+.pull-right[![](figures/robot2_sup.svg)]
+
+--
+
+Freq Bot "knows" that
+
+--
+
+- Height has some finite mean $\mu$
+
+--
+
+- Height has some finite variance $\sigma^2$
+
+--
+
+- ...and that's it!
+
+--
+
+So what's it thinking before it sees any data?
+
+---
+class: inverse, center
+
+![](figures/robot2_centered.svg)
+
+---
+class: inverse, center
+
+![](figures/robot2_giant.svg)
+
+
+
+
+---
+class: inverse, center
+
+![](figures/robot2_giant_tiny.svg)
+---
+class: inverse, center
+
+![](figures/robot2_giant_tiny_speech.svg)
+
+---
+class: inverse
+Now let's see what's going on with Bayes Bot
+
+--
+
+.pull-right[![](figures/robot1_yo.svg)]
+
+--
+
+Bayes Bot "knows" everything that Freq Bot knows
+
+--
+
+- Height has some finite mean $\mu$
+
+--
+
+- Height has some finite variance $\sigma^2$
+
+--
+
+...plus some extra stuff about $\mu$ and $\sigma^2$ that Freq Bot doesn't.
+
+--
+
+How do we "program" that extra knowledge about $\mu$ and $\sigma^2$ into Bayes Bot? 
+
+--
+
+We want Bayes Bot to have an opinion about what it might see...
+--
+but also be able to change that opinion!
+
+--
+
+We encode that extra knowledge in the form of a probability distribution called the prior distribution
+
+--
+
+.pull-left[
+
+```{r dev.args = list(bg = "transparent"), echo = FALSE, fig.height = 4}
+
+curve(dnorm(x, mean = 6, sd = 2), from = 1, to = 11, lwd = 4, col = "blue", xlab = expression(mu), ylab = "", cex.lab = 3, yaxt = "n", bty = "n", mar = rep(0, 4) + .1, cex.axis = 2)
+
+```
+
+]
+
+.pull-right-fig[
+```{r dev.args = list(bg = "transparent"), echo = FALSE, fig.height = 4}
+curve(dcauchy(x, location = 0, scale = 1), from = 0, to = 10, lwd = 4, col = "blue", xlab = expression(sigma^2), cex.lab = 3, yaxt = "n", bty = "n", ylab = "", mar = rep(0, 4) + .1, cex.axis = 2 )
+```
+]
+
+
+---
+class: inverse, center
+
+![](figures/robot1_prethinking.svg)
+
+
+---
+class: inverse, center
+
+![:scale 110%](figures/robot1_thinking.svg)
+
+
+---
+class: inverse, center
+
+![](figures/robot1_thinking_bigsmall.svg)
+
+
+
+---
+class: inverse, center
+
+![](figures/robot1_thinking_bigsmall_xout.svg)
+
+---
+class: inverse
+Before seeing any data,
+
+--
+
+- Freq Bot is ready for anything (really, anything)
+
+--
+
+- Bayes Bot has some opinions, but is keeping an open mind
+
+--
+
+We're almost ready to give both of these bots some data
+--
+
+But first, they both need to be equipped with additional tools in order to do *statistical inference*
+
+--
+
+Freq Bot will almost always get something based on asymptotics like a Central Limit Theorem,
+
+--
+
+![:scale 50%](figures/clt.svg)
+
+--
+
+while Bayes Bot will get a likelihood (or data model),
+
+--
+
+![:scale 50%](figures/likelihood.svg)
+---
+The data look like
+
+```{r, echo = FALSE}
+
+set.seed(343)
+heights <- round(rnorm(20, mean = 5.8, sd = .5), digits = 2)
+
+
+```
+
+`r heights`
+
+---
+class: inverse
+
+--
+.pull-left[
+So Freq Bot has its minimal assumptions about $\mu$ and $\sigma^2$ plus its CLT
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+![:scale 60%](figures/robot2_clt.svg)
+]
+--
+
+.pull-right[
+and Bayes Bot has its prior for $\mu$ and $\sigma^2$ plus its likelihood
+
+
+
+
+
+![](figures/robot1_likelihood.svg)
+]
+
+---
+class:inverse
+
+![](figures/robot2_talking.svg)
+
+---
+class: inverse
+
+
+
+
+![:scale 90%](figures/robo1_talking_posterior.svg)
+
+--
+
+.right[
+![:scale 35%](figures/blank_speech.svg)
+]
+
+---
+class:inverse
+
+![:scale 90%](figures/robo1_talking.svg)
+
+
+
+.right[
+![:scale 35%](figures/blank_speech.svg)
+]
+
+---
+class:inverse
+
+![:scale 90%](figures/robo1_talking.svg)
+
+
+
+.right[
+![:scale 35%](figures/speech_95ci.svg)
+]
+
+---
+
+class:inverse
+
+![:scale 90%](figures/robot1_talking_posterior95ci.svg)
+
+
+
+.right[
+![:scale 35%](figures/speech_95ci.svg)
+]
+
+---
+class:inverse
+
+![:scale 90%](figures/robot1_talking_posterior95ci.svg)
+
+
+
+.right[
+![:scale 35%](figures/speech_phypothesis.svg)
+]
+
+---
+class:inverse
+
+![:scale 90%](figures/robot1_talking_phypothesis.svg)
+
+
+
+.right[
+![:scale 35%](figures/speech_phypothesis.svg)
+]
+
+---
+class: inverse
+
+
+
+
