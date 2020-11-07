@@ -76,4 +76,5 @@
   font-size: 18px;
 }
 
-
+.large { font-size: 130% }
+.small { font-size: 70% }
