@@ -515,10 +515,9 @@ class: inverse
 
 --
 .pull-left[
-So Freq Bot has its minimal assumptions about $\mu$ and $\sigma^2$ plus its CLT
 
 
-<br>
+
 <br>
 <br>
 <br>
@@ -530,10 +529,6 @@ So Freq Bot has its minimal assumptions about $\mu$ and $\sigma^2$ plus its CLT
 --
 
 .pull-right[
-and Bayes Bot has its prior for $\mu$ and $\sigma^2$ plus its likelihood
-
-
-
 
 
 ![](figures/robot1_likelihood.svg)
@@ -641,5 +636,7 @@ class: inverse, center
 ---
 class: inverse
 
+--
 
+NOSE nasal swab study
 
