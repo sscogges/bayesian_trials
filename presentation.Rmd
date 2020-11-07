@@ -152,8 +152,26 @@ class:inverse
 
 ![](figures/cohort_with_pill_arrow_computer_monkey.svg)
 
+
+
 ---
 class:inverse
+
+--
+
+What if we want to do something...
+
+--
+
+ .large[*crazy*]...
+
+--
+
+like take some interim looks at the data?
+
+--
+
+Corrections, corrections, corrections!
 
 --
 .left[
@@ -162,15 +180,17 @@ class:inverse
 
 --
 
+.right[
+![:scale 50%](figures/guy2_math.gif)
+]
+
+
+--
+
 .center[
 ![:scale 30%](figures/woman1_math.gif)
 ]
 
---
-
-.topright[
-![:scale 20%](figures/guy2_math.gif)
-]
 
 --
 
@@ -184,6 +204,17 @@ class:inverse
 .bottomright[
 ![](figures/guy4_math.gif)
 ]
+---
+class: inverse
+
+--
+
+## I know what you're thinking...
+
+--
+
+![:scale 80%](figures/betterway.gif)
+
 ---
 class:inverse
 
@@ -472,14 +503,11 @@ while Bayes Bot will get a likelihood (or data model),
 ---
 The data look like
 
-```{r, echo = FALSE}
+```{r}
 
-set.seed(343)
-heights <- round(rnorm(20, mean = 5.8, sd = .5), digits = 2)
-
+loadd(heights)
 
 ```
-
 `r heights`
 
 ---
@@ -587,8 +615,31 @@ class:inverse
 ]
 
 ---
-class: inverse
+class: inverse, center
 
+--
+
+
+![:scale 80%](figures/guarantee.gif)
+
+### *There's no guarantee on the box!*
+
+---
+class: inverse, center
+
+--
+![](figures/pill_box.svg)
+---
+class: inverse, center
+
+![](figures/pill_box_guarantee.svg)
+
+---
+class: inverse, center
+
+![](figures/pill_box_magnified.svg)
+---
+class: inverse
 
 
 
