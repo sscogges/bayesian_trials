@@ -1,5 +1,5 @@
 ---
-title: "Bayesian Adaptive Trials"
+title: "The NOSE Trial"
 subtitle: "or, How I Learned to Stop Worrying and Love Sample Size Calculations"
 author: "Scott Coggeshall"
 institute: "Health Services Research & Development, VA Puget Sound"
@@ -13,48 +13,23 @@ output:
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
-    seal: false
+    
+---
+class: inverse
+
+# 3D Printed Versions of Commercial Nasal Swabs
+
+--
+
+![:scale 90%](figures/swab.gif)
+
+--
+
+Are the 3d printed nasal swabs as accurate as the commerically-produced standard of care swabs?
 
 ---
-```{r xaringan-animate-all, echo=FALSE}
-xaringanExtra::use_animate_css()
-```
-class: inverse animated lightSpeedOutLeft
-background-image: url(figures/orion.jpg)
-
---
-
-.pull-left-title[
-### Bayesian 
-
-### Adaptive 
-
-### Trials 
-]
-
---
-
-.pull-right-title[
-### Or,
-
-### How I Learned to Stop Worrying and Love Sample Size Calculations
-
-]
-
---
-
-.bottom-text[Scott Coggeshall 
-
-HSR&D
-
-VA Puget Sound
-
-]
 
 
-
-
----
 class:inverse
 
 # Typical Fixed $n$ Randomized Trial
@@ -155,11 +130,21 @@ class:inverse
 
 ![](figures/cohort_with_pill_arrow_computer_monkey.svg)
 
+---
+class:inverse
 
+![](figures/multiple_swabs.jpg)
 
 ---
 class:inverse
 
+![](figures/getting_swabbed.png)
+--
+
+![:scale 30%](figures/ouch.png)
+
+---
+class:inverse
 
 --
 .left[
@@ -206,13 +191,18 @@ class: inverse
 ---
 class:inverse
 
+# Crash Course in Bayesian Statistics
+
+---
+class:inverse
+
 --
 
 ![](figures/bayes.gif)
 
 --
 
-The Right Reverend Thomas Bayes (1702-1761)
+The Reverend Thomas Bayes (1702-1761)
 
 --
 
@@ -228,7 +218,7 @@ class:inverse
 ![](figures/bayes_x.gif.svg)
 
 
-The Right Reverend Thomas Bayes (1702-1761)
+The Reverend Thomas Bayes (1702-1761)
 
 
 
@@ -611,16 +601,33 @@ class: inverse, center
 ![](figures/everytime.gif)
 
 
----
-class: inverse
-background-image: url("figures/asymptotia.svg")
-background-size: contain
-
 
 ---
-class: inverse
+class:inverse
+
+# Our statistical model is not that complicated!
 
 --
 
-NOSE nasal swab study
+## $P(\text{Alt Swab is Positive} | \text{SoC Swab is Positive})$
+
+--
+
+(i.e. sensitivity)
+
+--
+
+## $P(\text{Alt Swab is Negative} | \text{SoC Swab is Negative})$
+
+--
+
+(i.e. specificity)
+
+
+---
+class:inverse, center
+
+![:scale 80%](figures/roadmap.png)
+
+
 
